@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TraderJudge</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400&display=swap" rel="stylesheet">
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Helvetica","Inter", "Inter Placeholder", sans-serif;
+      background: #FFFFFF;
+      color: rgb(29, 29, 31);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #e6e6e640;
+      padding: 10px 20px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 10px 0px;
+      border-radius: 25px;
+      margin: 10px;
+      position: fixed;
+      top: 0;
+      left: 20%;
+      width: calc(60% - 20px);
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+    .logo img {
+      height: 40px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+    nav ul li a {
+      color: rgb(29, 29, 31);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #000000;
+    }
+    .join-btn {
+      background: rgb(0,113,227);
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.3s ease;
+    }
+    .join-btn:hover {
+      background: rgb(0,113,227);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .join-btn::after {
+      content: "→";
+    }
+    .discount-box-1 {
+      background: #6a95e514;
+      color: rgb(29, 29, 31);
+      font-family: "Montserrat", "Inter Placeholder", sans-serif;
+      font-size: 12px;
+      padding: 5px 10px;
+      border-radius: 15px;
+      border-color: #dee4ff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .banner {
+      text-align: center;
+      padding: 100px 0 60px;
+      margin-top: 70px;
+    }
+    .banner p {
+      font-size: 18px;
+      color: rgb(29, 29, 31);
+      margin-bottom: 20px;
+    }
+    .banner .get-started {
+      background: rgb(0,113,227);
+      color: #FFFFFF;
+      padding: 12px 30px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    .banner .get-started:hover {
+      background: rgb(0,113,227);
+    }
+    .benefits {
+      padding: 60px 0;
+      text-align: center;
+    }
+    .benefits h1 {
+      font-size: 36px;
+      color: rgb(29, 29, 31);
+      margin-bottom: 20px;
+    }
+    .benefits p {
+      font-size: 16px;
+      color: rgb(29, 29, 31);
+      margin-bottom: 40px;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #FFFFFF;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: left;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .card .title-row {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      font-size: 20px;
+      color: rgb(29, 29, 31);
+      margin: 0;
+    }
+    .card .discount-box {
+      background: #ffffff;
+      color: rgb(0,113,227);
+      font-family: "Montserrat", "Inter Placeholder", sans-serif;
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      border-color: #dee4ff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .card p {
+      font-size: 14px;
+      color: rgb(29, 29, 31);
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    .card ul li {
+      font-size: 14px;
+      color: rgb(29, 29, 31);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
+    .card ul li i {
+      color: rgb(29, 29, 31);
+      margin-right: 10px;
+    }
+    .card a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: rgb(0,113,227);
+      border: 2px solid rgb(0,113,227);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+    .card a:hover {
+      background: rgb(0,113,227);
+      color: #FFFFFF;
+      border-color: rgb(0,113,227);
+    }
+    .membership {
+      padding: 60px 0;
+      text-align: center;
+      background: rgb(245, 245, 247);
+    }
+    .membership h3 {
+      font-size: 14px;
+      color: rgb(29, 29, 31);
+      margin: 0;
+    }
+    .membership h2 {
+      font-size: 36px;
+      color: rgb(29, 29, 31);
+      margin-bottom: 40px;
+    }
+    .membership .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .membership .card {
+      text-align: center;
+      padding: 30px;
+    }
+    .plan-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    .price {
+      font-size: 40px;
+      font-weight: 700;
+      color: rgb(29, 29, 31);
+      margin-top: 10px;
+    }
+    .faq {
+      padding: 60px 0;
+      text-align: center;
+      background: #FFFFFF;
+    }
+    .faq h2 {
+      font-size: 28px;
+      color: rgb(29, 29, 31);
+      margin-bottom: 40px;
+    }
+    .faq .accordion {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq .accordion-item {
+      margin-bottom: 10px;
+    }
+    .faq .accordion-header {
+      background: #FFFFFF;
+      color: rgb(29, 29, 31);
+      padding: 15px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s;
+    }
+    .faq .accordion-header:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .faq .accordion-header i {
+      color: rgb(29, 29, 31);
+      transition: transform 0.3s;
+    }
+    .faq .accordion-header.active i {
+      transform: rotate(45deg);
+    }
+    .faq .accordion-content {
+      display: none;
+      background: #F5F6F5;
+      padding: 15px;
+      font-size: 14px;
+      color: rgb(29, 29, 31);
+      line-height: 1.5;
+      border-radius: 0 0 10px 10px;
+      text-align: left;
+    }
+    .faq .accordion-content.active {
+      display: block;
+    }
+    footer {
+      background: #343434;
+      color: #FFFFFF;
+      padding: 40px 0;
+      text-align: center;
+    }
+    footer .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    footer img.logo {
+      height: 40px;
+    }
+    footer .social-links a {
+      margin: 0 10px;
+      display: inline-block;
+      color: #FFFFFF !important;
+      font-size: 16px;
+      transition: transform 0.3s;
+    }
+    footer .social-links a:hover {
+      color: #FFFFFF !important;
+      transform: scale(1.1);
+    }
+    footer p {
+      font-size: 14px;
+      color: #FFFFFF;
+    }
+    @media (max-width: 768px) {
+      header {
+        padding: 8px 15px;
+      }
+      nav ul {
+        gap: 10px;
+      }
+      nav ul li a {
+        font-size: 14px;
+      }
+      .join-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+      .banner {
+        padding: 80px 0 40px;
+      }
+      .banner p {
+        font-size: 16px;
+      }
+      .benefits h1 {
+        font-size: 28px;
+      }
+      .membership h2, .faq h2 {
+        font-size: 24px;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      footer .footer-content {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://via.placeholder.com/150x40/FFFFFF/003087?text=TraderJudge" alt="TraderJudge Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#"></a></li>
+        <li><a href="#">Avantajlar</a></li>
+        <li><a href="#" onclick="scrollToMembership()">Üyelik</a></li>
+        <li><a href="#">Yorumlar</a></li>
+        <li><a href="#">S.S.S</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="join-btn" onclick="scrollToMembership()">Katıl</a>
+  </header>
+
+  <section class="banner">
+    <div class="container">
+      <p><span>Açılışa özel TJ30 ile 30% indirim</span></p>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="container">
+      <h1>Üyelik Avantajları</h1>
+      <div class="card-grid">
+        <div class="card">
+          <img src="https://via.placeholder.com/300x150/003087/FFFFFF?text=Canlı+Yayın" alt="Özel Eğitim">
+          <h3>Özel Eğitim</h3>
+          <p>Hemen gelişmiş kurs içeriğine ve TraderJudge'ın TJFractal Modeline erişim sağlayın. Üyeler, katıldıkları anda detaylı öğrenmeye başlayabilir.</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x150/003087/FFFFFF?text=Canlı+Yayın" alt="Canlı Yayın Oturumları">
+          <h3>Canlı Yayınlar</h3>
+          <p>Haftalık olarak düzenlenen, ilgili işlem konularındaki canlı yayınları izleyerek öğrenin. Soru-cevap oturumlarıyla interaktif katılım sağlayın. Tüm etkinlikler önceden planlanır ve en iyi izleme deneyimi için kaydedilir.</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x150/003087/FFFFFF?text=Doğrudan+Rehberlik" alt="Doğrudan Rehberlik">
+          <h3>Doğrudan Rehberlik</h3>
+          <p>TraderJudge’ın sürekli rehberliğine erişin ve düzenli piyasa güncellemeleri, tartışmalar ve incelemeler aracılığıyla gerçek zamanlı öğrenme deneyimi yaşayın.</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x150/003087/FFFFFF?text=Doğrudan+Rehberlik" alt="İşlem Analizleri">
+          <h3>İşlem Analizleri</h3>
+          <p>Geçmiş işlemlerin detaylı incelemelerini takip edin. Bu bölüm, işlemlerinizi analiz ederek öğrenmenizi desteklemek için düzenli olarak güncellenir.</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x150/003087/FFFFFF?text=Video+Kütüphanesi" alt="Video Kütüphanesi">
+          <h3>Video Kütüphanesi</h3>
+          <p>Geçmiş canlı yayınların, piyasa incelemelerinin, canlı yorumların ve daha fazlasının kaydedilmiş videolarını izleyin.</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x150/003087/FFFFFF?text=İşlem+Tekrarı" alt="Kişisel Koçluk">
+          <h3>Kişisel Koçluk</h3>
+          <p>Ek ücret karşılığında kişiselleştirilmiş koçluk görüşmeleriyle öğrenme sürecinizi hızlandırın. Birebir dersler ve kişiye özel çözümler için görüşmeler önceden planlanır.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="membership" id="membership">
+    <div class="container">
+      <h2>Üyelik Planları</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="title-row">
+            <div class="plan-info">
+              <h3>Aylık</h3>
+              <span class="discount-box">TJ30 ile 30% indirim</span>
+            </div>
+            <div class="price">100$</div>
+          </div>
+          <ul>
+            <li><i class="fas fa-check"></i> Özel Grup</li>
+            <li><i class="fas fa-check"></i> Bütün Dersler</li>
+            <li><i class="fas fa-check"></i> Canlı Yayınlar</li>
+            <li><i class="fas fa-check"></i> Piyasa Analizleri</li>
+            <li><i class="fas fa-check"></i> Kişisel Koçluk</li>
+            <li><i class="fas fa-check"></i> 24/7 Destek</li>
+          </ul>
+          <a href="#">Katıl</a>
+        </div>
+        <div class="card">
+          <div class="title-row">
+            <div class="plan-info">
+              <h3>3 Aylık</h3>
+              <span class="discount-box">TJ30 ile 30% indirim</span>
+            </div>
+            <div class="price">250$</div>
+          </div>
+          <ul>
+            <li><i class="fas fa-check"></i> Özel Grup</li>
+            <li><i class="fas fa-check"></i> Bütün Dersler</li>
+            <li><i class="fas fa-check"></i> Canlı Yayınlar</li>
+            <li><i class="fas fa-check"></i> Piyasa Analizleri</li>
+            <li><i class="fas fa-check"></i> Kişisel Koçluk</li>
+            <li><i class="fas fa-check"></i> 24/7 Destek</li>
+          </ul>
+          <a href="#">Katıl</a>
+        </div>
+        <div class="card">
+          <div class="title-row">
+            <div class="plan-info">
+              <h3>Ömür Boyu</h3>
+              <span class="discount-box">TJ30 ile 30% indirim</span>
+            </div>
+            <div class="price">1500$</div>
+          </div>
+          <ul>
+            <li><i class="fas fa-check"></i> Özel Grup</li>
+            <li><i class="fas fa-check"></i> Bütün Dersler</li>
+            <li><i class="fas fa-check"></i> Canlı Yayınlar</li>
+            <li><i class="fas fa-check"></i> Piyasa Analizleri</li>
+            <li><i class="fas fa-check"></i> Kişisel Koçluk</li>
+            <li><i class="fas fa-check"></i> 24/7 Destek</li>
+          </ul>
+          <a href="#">Katıl</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="container">
+      <h2>Sıkça Sorulan Sorular</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header">
+            TraderJudge üyeliği hangi avantajları sunar?
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="accordion-content">
+            TraderJudge, özel eğitimler, canlı yayınlar, doğrudan rehberlik, video kütüphanesi, kişisel koçluk ve işlem analizleri sunar.
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            İndirim kodunu nasıl kullanırım?
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="accordion-content">
+            Ödeme sırasında TJ30 kodunu girerek %30 indirimden faydalanabilirsiniz.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <img src="https://via.placeholder.com/150x40/FFFFFF/003087?text=TraderJudge" alt="TraderJudge Logo" class="logo">
+        <div class="social-links">
+          <a href="https://x.com" target="_blank">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="https://telegram.org" target="_blank">
+            <i class="fab fa-telegram-plane"></i>
+          </a>
+          <a href="mailto:info@traderjudge.com">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      <p>© 2025 TraderJudge. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Accordion için mevcut JavaScript
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector('i');
+        const isActive = content.classList.contains('active');
+
+        document.querySelectorAll('.accordion-content').forEach(item => {
+          item.classList.remove('active');
+        });
+        document.querySelectorAll('.accordion-header i').forEach(item => {
+          item.classList.remove('fa-minus');
+          item.classList.add('fa-plus');
+          item.parentElement.classList.remove('active');
+        });
+
+        if (!isActive) {
+          content.classList.add('active');
+          icon.classList.remove('fa-plus');
+          icon.classList.add('fa-minus');
+          header.classList.add('active');
+        }
+      });
+    });
+
+    // Hemen Katıl butonu için scroll fonksiyonu
+    function scrollToMembership() {
+      document.getElementById('membership').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
