@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SmartTraders</title>
+    <title>Smart Traders</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -40,41 +40,41 @@
         position: relative;
       }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #efefefbf;
-  padding: 10px 20px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 10px 0px;
-  border-radius: 15px;
-  margin: 10px auto;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 1200px;
-  z-index: 1000;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-.logo {
-  display: flex; /* Logo ve metni aynı hizaya getirmek için flex kullan */
-  align-items: center; /* Dikey olarak ortala */
-  gap: 10px; /* Logo ve metin arasına boşluk */
-}
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #efefefbf;
+        padding: 10px 20px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 10px 0px;
+        border-radius: 15px;
+        margin: 10px auto;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 1200px;
+        z-index: 1000;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+      }
+      .logo {
+        display: flex; /* Logo ve metni aynı hizaya getirmek için flex kullan */
+        align-items: center; /* Dikey olarak ortala */
+        gap: 10px; /* Logo ve metin arasına boşluk */
+      }
 
       .logo img {
         height: 56px;
       }
       .logo-text {
-  font-family: "Poppins", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: rgb(29, 29, 31);
-  white-space: nowrap; /* Metnin tek satırda kalmasını sağla */
-}
+        font-family: "Poppins", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: rgb(29, 29, 31);
+        white-space: nowrap; /* Metnin tek satırda kalmasını sağla */
+      }
 
       nav ul.nav-menu {
         list-style: none;
@@ -103,7 +103,7 @@ header {
         text-decoration: none;
         font-family: "Poppins", sans-serif;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 400;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
@@ -271,7 +271,7 @@ header {
         border-radius: 10px;
         text-decoration: none;
         font-size: 20px;
-        font-weight: 700;
+        font-weight: 500;
         cursor: pointer; /* Corrected to pointer */
         display: inline-flex;
         align-items: center;
@@ -920,86 +920,84 @@ header {
         display: block;
       }
 
-      
-/* Footer Styles */
-footer {
-  background: #1A1D23; /* Daha koyu, zengin bir arka plan rengi */
-  color: #F5F5F5;
-  padding: 40px 0; /* Daha fazla dikey boşluk */
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Üste hafif bir çizgi */
-}
+      /* Footer Styles */
+      footer {
+        background: #1a1d23; /* Daha koyu, zengin bir arka plan rengi */
+        color: #f5f5f5;
+        padding: 40px 0; /* Daha fazla dikey boşluk */
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Üste hafif bir çizgi */
+      }
 
-footer .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+      footer .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
 
-footer .footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px; /* Telif hakkı metni ile arasına daha fazla boşluk */
-  flex-wrap: wrap; /* Küçük ekranlarda alt alta geçiş */
-  gap: 20px;
-}
+      footer .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px; /* Telif hakkı metni ile arasına daha fazla boşluk */
+        flex-wrap: wrap; /* Küçük ekranlarda alt alta geçiş */
+        gap: 20px;
+      }
 
-footer img.logo {
-  height: 56px;
-  transition: transform 0.3s ease;
-}
+      footer img.logo {
+        height: 56px;
+        transition: transform 0.3s ease;
+      }
 
+      footer .social-links {
+        display: flex;
+        gap: 15px;
+      }
 
-footer .social-links {
-  display: flex;
-  gap: 15px;
-}
+      footer .social-links a {
+        color: #f5f5f5;
+        font-size: 22px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.2); /* Hafif bir çerçeve */
+        transition: all 0.3s ease; /* Tüm geçişler için */
+      }
 
-footer .social-links a {
-  color: #F5F5F5;
-  font-size: 22px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Hafif bir çerçeve */
-  transition: all 0.3s ease; /* Tüm geçişler için */
-}
+      footer .social-links a:hover {
+        color: #ffffff; /* Hover'da ikon rengi beyaz */
+        background: rgb(0, 113, 227); /* Mavi arka plan */
+        border-color: rgb(0, 113, 227); /* Çerçeve rengi mavi */
+        transform: translateY(-3px) scale(1.05); /* Hafif yukarı kayma ve büyüme */
+        box-shadow: 0 5px 15px rgba(0, 113, 227, 0.4); /* Gölgelendirme */
+      }
 
-footer .social-links a:hover {
-  color: #FFFFFF; /* Hover'da ikon rengi beyaz */
-  background: rgb(0,113,227); /* Mavi arka plan */
-  border-color: rgb(0,113,227); /* Çerçeve rengi mavi */
-  transform: translateY(-3px) scale(1.05); /* Hafif yukarı kayma ve büyüme */
-  box-shadow: 0 5px 15px rgba(0, 113, 227, 0.4); /* Gölgelendirme */
-}
+      footer p {
+        font-size: 14px;
+        color: #a0a0a0; /* Daha yumuşak bir gri tonu */
+        margin: 0;
+      }
 
-footer p {
-  font-size: 14px;
-  color: #A0A0A0; /* Daha yumuşak bir gri tonu */
-  margin: 0;
-}
+      /* Responsive Düzenlemeler (Footer) */
+      @media (max-width: 768px) {
+        footer .footer-content {
+          flex-direction: column;
+          gap: 20px;
+        }
 
-/* Responsive Düzenlemeler (Footer) */
-@media (max-width: 768px) {
-  footer .footer-content {
-    flex-direction: column;
-    gap: 20px;
-  }
+        footer img.logo {
+          height: 35px; /* Mobil için logo boyutunu ayarla */
+        }
 
-  footer img.logo {
-    height: 35px; /* Mobil için logo boyutunu ayarla */
-  }
-
-  footer .social-links a {
-    font-size: 20px; /* Mobil için ikon boyutunu ayarla */
-    width: 36px;
-    height: 36px;
-  }
-}
+        footer .social-links a {
+          font-size: 20px; /* Mobil için ikon boyutunu ayarla */
+          width: 36px;
+          height: 36px;
+        }
+      }
 
       /* Responsive Styles */
       @media (max-width: 768px) {
@@ -1011,10 +1009,10 @@ footer p {
         .logo img {
           height: 40px;
         }
-        
+
         .logo-text {
-    font-size: 18px; /* Mobil için yazı boyutunu küçült */
-  }
+          font-size: 18px; /* Mobil için yazı boyutunu küçült */
+        }
 
         .hamburger {
           display: flex;
@@ -1176,8 +1174,8 @@ footer p {
   </head>
   <body>
     <header>
-       <div class="logo">
-        <img src="images/smart_traders_logo.png" alt="Smart Traders">
+      <div class="logo">
+        <img src="images/smart_traders_logo.png" alt="Smart Traders" />
         <span class="logo-text">SMART TRADERS</span>
       </div>
       <nav>
@@ -1188,7 +1186,7 @@ footer p {
         </div>
         <ul class="nav-menu">
           <li><a href="#avantajlar">Avantajlar</a></li>
-          <li><a href="#about">Hakkımda</a></li>
+          <li><a href="#about">Hakkında</a></li>
           <li><a href="#testimonials">Yorumlar</a></li>
           <li><a href="#membership">Üyelik</a></li>
           <li><a href="#faq">S.S.S</a></li>
@@ -1238,9 +1236,9 @@ footer p {
           </div>
           <div class="banner-right">
             <p class="intro_right">
-              TraderJudge topluluğuna hoş geldiniz! SMC konseptleriyle başarılı
-              bir trader olmanız için ihtiyacınız olan bilgi, strateji ve
-              desteği bulacaksınız. Hayallerinizi gerçeğe dönüştürmek için
+              Smart Traders topluluğuna hoş geldiniz! SMC konseptleriyle
+              başarılı bir trader olmanız için ihtiyacınız olan bilgi, strateji
+              ve desteği bulacaksınız. Hayallerinizi gerçeğe dönüştürmek için
               yolculuğunuza bizimle başlayın!
             </p>
             <a href="#" class="join-btn" onclick="scrollToMembership()"
@@ -1320,12 +1318,14 @@ footer p {
     <section class="avantajlar" id="avantajlar">
       <div class="container">
         <h1>Üyelik Avantajları</h1>
+
+
         <div class="card-grid">
           <div class="card">
             <img src="images/avantajlar/ozel_topluluk.png" alt="Özel Eğitim" />
             <h3>Özel Topluluk</h3>
             <p>
-              SmartTraders topluluğuna katılarak aynı hedefe sahip traderlarla
+              Smart Traders topluluğuna katılarak aynı hedefe sahip traderlarla
               bağlantı kurun. Bilgi paylaşımı, fikir alışverişi ve destekle
               stratejilerinizi güçlendirin.
             </p>
@@ -1343,7 +1343,7 @@ footer p {
             <img src="images/avantajlar/osok.webp" alt="Özel Eğitim" />
             <h3>TJ'in Özel Modelleri</h3>
             <p>
-              TraderJudge’ın benzersiz Modelleri ile piyasaları analiz etmeyi
+              TraderJudge’ın benzersiz modelleri ile piyasaları analiz etmeyi
               öğrenin. Hemen başlayarak stratejilerinizi bir üst seviyeye
               taşıyın.
             </p>
@@ -1383,7 +1383,7 @@ footer p {
       <div class="container">
         <div class="about-content">
           <div class="about-text">
-            <h2>Hakkımda ve TraderJudge</h2>
+            <h2>TraderJudge Kimdir?</h2>
 
             <p>
               Finans dünyasında 6 yılı aşkın bir süredir, farklı piyasa
@@ -1599,29 +1599,29 @@ footer p {
         <div class="accordion">
           <div class="accordion-item">
             <div class="accordion-header">
-              TraderJudge üyeliği hangi avantajları sunar?
+              Smart Traders üyeliği hangi avantajları sunar?
               <i class="fas fa-plus"></i>
             </div>
             <div class="accordion-content">
-              TraderJudge, özel eğitimler, canlı yayınlar, doğrudan rehberlik,
+              Smart Traders, özel eğitimler, canlı yayınlar, doğrudan rehberlik,
               video kütüphanesi, kişisel koçluk ve işlem analizleri sunar.
             </div>
           </div>
           <div class="accordion-item">
             <div class="accordion-header">
-              SMC stratejileri TraderJudge’ta nasıl öğretiliyor?
+              SMC stratejileri Smart Traders'ta nasıl öğretiliyor?
               <i class="fas fa-plus"></i>
             </div>
             <div class="accordion-content">
               SMC (Smart Money Concepts) stratejileri, başlangıçtan ileri
-              seviyeye kadar yapılandırılmış dersler, canlı yayınlar ve TJ
-              Fraktal Modeli ile öğretilir. Pratik uygulamalar ve analizlerle
-              öğrenme süreci desteklenir.
+              seviyeye kadar yapılandırılmış dersler, canlı yayınlar ve
+              TraderJudge'ın özel modelleri ile öğretilir. Pratik uygulamalar ve
+              analizlerle öğrenme süreci desteklenir.
             </div>
           </div>
           <div class="accordion-item">
             <div class="accordion-header">
-              TraderJudge topluluğuna kimler katılabilir?
+              Smart Traders topluluğuna kimler katılabilir?
               <i class="fas fa-plus"></i>
             </div>
             <div class="accordion-content">
@@ -1660,7 +1660,11 @@ footer p {
       <div class="container">
         <div class="footer-content">
           <!-- <img src="images/logo.png" alt="SmartTraders" class="logo" /> -->
-          <img src="images/smart_traders_logo.png" alt="SmartTraders" class="logo" />
+          <img
+            src="images/smart_traders_logo.png"
+            alt="SmartTraders"
+            class="logo"
+          />
           <div class="social-links">
             <a href="https://x.com" target="_blank" aria-label="Twitter"
               ><i class="fab fa-x-twitter"></i
