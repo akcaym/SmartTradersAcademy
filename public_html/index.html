@@ -66,11 +66,11 @@
       }
 
       .logo img {
-        height: 56px;
+        height: 52px;
       }
       .logo-text {
         font-family: "Poppins", sans-serif;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 700;
         color: rgb(29, 29, 31);
         white-space: nowrap; /* Metnin tek satırda kalmasını sağla */
@@ -180,9 +180,10 @@
       }
 
       .timerwrapper h1 {
+        font-family: "Poppins", "Inter", sans-serif;
         font-size: 2rem;
-        font-weight: 500;
-        margin-bottom: 15px;
+        font-weight: 400;
+        /* margin-bottom: 15px; */
       }
 
       .timerwrapper .timebox {
@@ -196,12 +197,15 @@
       }
 
       .timerwrapper .time h2 {
+        font-family: "Poppins", "Inter", sans-serif;
         font-size: 2.5rem;
         font-weight: 200;
       }
 
       .timerwrapper .time p {
+        font-family: "Poppins", "Inter", sans-serif;
         font-size: 0.9rem;
+        font-weight: 300;
         margin-top: 5px;
       }
 
@@ -420,7 +424,7 @@
       }
 
       .about h2 {
-        font-size: 40px;
+        font-size: 50px;
         color: rgb(29, 29, 31);
         margin-bottom: 30px;
         font-weight: 700;
@@ -476,6 +480,18 @@
         height: 100%;
         object-fit: cover;
         display: block;
+      }
+
+      /* Animasyon için başlangıç stilleri */
+      .animated-content {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Animasyon geçiş süresi */
+      }
+
+      .animated-content.is-visible {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       /* Responsive Düzenlemeler */
@@ -715,6 +731,19 @@
         line-height: 1;
       }
 
+      /* Responsive ayarlar */
+      @media (max-width: 768px) {
+        .membership h2 {
+          font-size: 32px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .membership h2 {
+          font-size: 28px;
+        }
+      }
+
       .testimonials {
         padding: 60px 0;
         text-align: center;
@@ -773,6 +802,9 @@
 
       /* Responsive ayarlar */
       @media (max-width: 768px) {
+        .testimonials h2 {
+          font-size: 32px;
+        }
         .testimonials-carousel {
           /*max-width: 100%;*/
           max-width: 450px;
@@ -789,14 +821,12 @@
           /*max-height: 220px; */
           max-width: 450px;
         }
-
-        .testimonial-box .twitter-tweet {
-          /* Tweet'lerin boyutunu küçült */
-          /*max-height: 200px; */
-        }
       }
 
       @media (max-width: 480px) {
+        .testimonials h2 {
+          font-size: 28px;
+        }
         .testimonials-carousel {
           max-width: 450px;
           /* Daha küçük ekranlar için yükseklik */
@@ -807,11 +837,6 @@
           padding: 8px;
           /*max-height: 170px;*/
           max-width: 450px;
-        }
-
-        .testimonial-box .twitter-tweet {
-          /* Tweet'lerin boyutunu küçült */
-          /*max-height: 150px; */
         }
       }
 
@@ -920,6 +945,19 @@
         display: block;
       }
 
+      /* Responsive ayarlar */
+      @media (max-width: 768px) {
+        .faq h2 {
+          font-size: 32px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .faq h2 {
+          font-size: 28px;
+        }
+      }
+
       /* Footer Styles */
       footer {
         background: #1a1d23; /* Daha koyu, zengin bir arka plan rengi */
@@ -945,7 +983,7 @@
       }
 
       footer img.logo {
-        height: 56px;
+        height: 52px;
         transition: transform 0.3s ease;
       }
 
@@ -996,6 +1034,43 @@
           font-size: 20px; /* Mobil için ikon boyutunu ayarla */
           width: 36px;
           height: 36px;
+        }
+      }
+
+      /* Section Title Styles */
+      .section-title {
+        font-size: 50px; /* İstediğiniz genel boyut */
+        color: rgb(29, 29, 31);
+        margin-bottom: 40px; /* Başlık altındaki boşluk */
+        font-weight: 700; /* Kalınlık */
+        text-align: center; /* Ortala */
+        opacity: 0; /* Animasyon için başlangıç gizliliği */
+        transform: translateY(20px); /* Animasyon için başlangıç pozisyonu */
+      }
+
+      .section-title.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        animation: slideInUp 0.5s ease-out;
+      }
+
+      .section-title .is-visible p {
+        opacity: 1;
+        transform: translateY(0);
+        animation: slideInUp 0.5s ease-out;
+      }
+
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 36px; /* Tablet boyutları için */
+          margin-bottom: 30px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .section-title {
+          font-size: 28px; /* Mobil boyutları için */
+          margin-bottom: 25px;
         }
       }
 
@@ -1317,9 +1392,7 @@
 
     <section class="avantajlar" id="avantajlar">
       <div class="container">
-        <h1>Üyelik Avantajları</h1>
-
-
+        <h2 class="section-title">Üyelik Avantajları</h2>
         <div class="card-grid">
           <div class="card">
             <img src="images/avantajlar/ozel_topluluk.png" alt="Özel Eğitim" />
@@ -1382,8 +1455,8 @@
     <section class="about" id="about">
       <div class="container">
         <div class="about-content">
-          <div class="about-text">
-            <h2>TraderJudge Kimdir?</h2>
+          <div class="about-text animated-content">
+            <h2 class="section-title">TraderJudge Kimdir?</h2>
 
             <p>
               Finans dünyasında 6 yılı aşkın bir süredir, farklı piyasa
@@ -1410,7 +1483,7 @@
               öğrenme ve büyüme yolculuğumuzun bir başlangıcı.
             </p>
           </div>
-          <div class="about-image">
+          <div class="about-image animated-content">
             <img
               src="https://placehold.co/300x300/E0E0E0/777777?text=TraderJudge Foto???"
               alt="Hakkımda Resim"
@@ -1422,7 +1495,7 @@
 
     <section class="testimonials" id="testimonials">
       <div class="container">
-        <h2>Üyeler Ne Diyor</h2>
+        <h2 class="section-title">Üyeler Ne Diyor</h2>
         <div class="testimonials-carousel">
           <div class="carousel-dots">
             <button class="carousel-dot active" data-index="0"></button>
@@ -1514,7 +1587,7 @@
 
     <section class="membership" id="membership">
       <div class="container">
-        <h2>Üyelik Planları</h2>
+        <h2 class="section-title">Üyelik Planları</h2>
         <div class="card-grid">
           <div class="card">
             <div class="title-row">
@@ -1595,7 +1668,7 @@
 
     <section class="faq" id="faq">
       <div class="container">
-        <h2>Sıkça Sorulan Sorular</h2>
+        <h2 class="section-title">Sıkça Sorulan Sorular</h2>
         <div class="accordion">
           <div class="accordion-item">
             <div class="accordion-header">
@@ -1659,7 +1732,6 @@
     <footer>
       <div class="container">
         <div class="footer-content">
-          <!-- <img src="images/logo.png" alt="SmartTraders" class="logo" /> -->
           <img
             src="images/smart_traders_logo.png"
             alt="SmartTraders"
@@ -1698,10 +1770,10 @@
         { threshold: 0.1 }
       ); // Trigger when 10% of the element is visible
 
-      // Observe all elements with the class 'card'
+      // Observe all elements with the class 'card' and 'section-title'
       document
-        .querySelectorAll(".card")
-        .forEach((card) => observer.observe(card));
+        .querySelectorAll(".card, .section-title, .animated-content")
+        .forEach((el) => observer.observe(el));
 
       // Testimonials Carousel
       const carouselInner = document.querySelector(".carousel-inner");

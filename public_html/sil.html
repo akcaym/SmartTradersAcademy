@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SmartTraders</title>
+    <title>Smart Traders</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -40,41 +40,41 @@
         position: relative;
       }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #efefefbf;
-  padding: 10px 20px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 10px 0px;
-  border-radius: 15px;
-  margin: 10px auto;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 1200px;
-  z-index: 1000;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-.logo {
-  display: flex; /* Logo ve metni aynı hizaya getirmek için flex kullan */
-  align-items: center; /* Dikey olarak ortala */
-  gap: 10px; /* Logo ve metin arasına boşluk */
-}
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #efefefbf;
+        padding: 10px 20px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 10px 0px;
+        border-radius: 15px;
+        margin: 10px auto;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 1200px;
+        z-index: 1000;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+      }
+      .logo {
+        display: flex; /* Logo ve metni aynı hizaya getirmek için flex kullan */
+        align-items: center; /* Dikey olarak ortala */
+        gap: 10px; /* Logo ve metin arasına boşluk */
+      }
 
       .logo img {
-        height: 56px;
+        height: 52px;
       }
       .logo-text {
-  font-family: "Poppins", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: rgb(29, 29, 31);
-  white-space: nowrap; /* Metnin tek satırda kalmasını sağla */
-}
+        font-family: "Poppins", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: rgb(29, 29, 31);
+        white-space: nowrap; /* Metnin tek satırda kalmasını sağla */
+      }
 
       nav ul.nav-menu {
         list-style: none;
@@ -103,7 +103,7 @@ header {
         text-decoration: none;
         font-family: "Poppins", sans-serif;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 400;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
@@ -271,7 +271,7 @@ header {
         border-radius: 10px;
         text-decoration: none;
         font-size: 20px;
-        font-weight: 700;
+        font-weight: 500;
         cursor: pointer; /* Corrected to pointer */
         display: inline-flex;
         align-items: center;
@@ -380,6 +380,31 @@ header {
         }
       }
 
+      /* Yeni genel animasyon sınıfı */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px); /* Başlangıç pozisyonu: 20px aşağıda */
+        transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Fallback transition */
+      }
+
+      .animate-on-scroll.is-visible {
+        opacity: 1; /* Animasyonun son opacity değeri */
+        transform: translateY(0); /* Animasyonun son transform değeri */
+        animation: slideInUp 0.7s ease-out; /* Animasyon süresini biraz uzattım. Forwards kaldırıldı. */
+      }
+
+      /* Animasyon keyframe'ini güncelledim */
+      @keyframes slideInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px); /* Başlangıç pozisyonu: 20px aşağıda */
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0); /* Bitiş pozisyonu: Kendi yerinde */
+        }
+      }
+
       .avantajlar {
         clear: both; /* Önceki float veya pozisyon etkilerini temizle */
         padding: 60px 0;
@@ -408,254 +433,21 @@ header {
         margin-bottom: 15px;
       }
 
-
-
-      /* Why Us Section Styles */
-.why-us-section {
-  padding: 80px 0;
-  background: #FFFFFF; /* Veya sitenizin genel arka plan rengi */
-  text-align: center;
-}
-
-.why-us-section .section-title {
-  font-size: 40px;
-  color: rgb(29, 29, 31);
-  margin-bottom: 40px;
-  font-weight: 700;
-}
-
-.why-us-section .why-content-grid {
-  display: flex;
-  flex-wrap: wrap; /* Küçük ekranlarda alt alta geçiş için */
-  justify-content: center; /* Öğeleri ortala */
-  gap: 30px; /* Öğeler arası boşluk */
-  max-width: 1200px; /* Container ile uyumlu */
-  margin: 0 auto;
-}
-
-.why-us-section .why-item {
-  flex: 1; /* Esnek genişlik, mevcut alanı doldurmaya çalışır */
-  min-width: 300px; /* Minimum genişlik, daha küçük ekranlarda alt alta geçişi tetikler */
-  background: #f8f8f9; /* Hafif gri bir arka plan */
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  padding: 30px;
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.why-us-section .why-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
-}
-
-.why-us-section .why-item h3 {
-  font-size: 28px;
-  color: rgb(0,113,227); /* Başlık rengi olarak sitenizin ana mavisini kullan */
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.why-us-section .why-item p {
-  font-size: 16px;
-  line-height: 1.7;
-  color: rgb(29, 29, 31);
-}
-
-/* avantajlar Responsive Düzenlemeler */
-@media (max-width: 992px) {
-  .why-us-section .section-title {
-    font-size: 36px;
-  }
-  .why-us-section .why-item {
-    min-width: 45%; /* Tablet boyutlarında iki sütun */
-  }
-}
-
-@media (max-width: 768px) {
-  .why-us-section {
-    padding: 60px 0;
-  }
-  .why-us-section .section-title {
-    font-size: 32px;
-    margin-bottom: 30px;
-  }
-  .why-us-section .why-item {
-    min-width: 90%; /* Mobil cihazlarda tek sütun */
-    padding: 25px;
-  }
-  .why-us-section .why-item h3 {
-    font-size: 24px;
-  }
-  .why-us-section .why-item p {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .why-us-section .section-title {
-    font-size: 28px;
-  }
-  .why-us-section .why-item {
-    padding: 20px;
-  }
-  .why-us-section .why-item h3 {
-    font-size: 22px;
-  }
-}
-
-
-
-      /* About Section Styles */
-      .about {
-        padding: 80px 0; /* Daha fazla dikey boşluk */
-        background: #f8f8f9; /* Hafif gri bir arka plan */
-        text-align: center;
-      }
-
-      .about .container {
-        max-width: 80%;
-      }
-
-      .about h2 {
-        font-size: 40px;
-        color: rgb(29, 29, 31);
-        margin-bottom: 30px;
-        font-weight: 700;
-      }
-
-      .about .about-content {
-        display: flex;
-        flex-direction: column; /* Mobil için dikey, büyük ekranlar için yan yana */
-        gap: 40px; /* Metin ve görsel arasındaki boşluk (mobil için hala geçerli) */
-        align-items: center;
-        /* max-width: 900px; ve margin: 0 auto; satırlarını kaldırıyoruz */
-        /* Artık .container'ın %100 genişliğini kullanacak */
-      }
-
-      .about .about-text {
-        flex: 1; /* Mevcut alanı doldur */
-        text-align: left; /* Metni sola hizala */
-        line-height: 1.8;
-        color: rgb(29, 29, 31);
-      }
-      .about-text {
-        max-width: 900px;
-      }
-
-      .about .about-text p {
-        font-size: 17px;
-        margin-bottom: 20px;
-        color: rgb(29, 29, 31); /* Metin rengini belirginleştir */
-      }
-
-      .about .about-text p:last-child {
-        margin-bottom: 0; /* Son paragrafın altında boşluk bırakma */
-      }
-
-      .about .about-image {
-        flex-shrink: 0; /* Resmin küçülmesini engelle */
-        width: 300px; /* Görsel alanı için sabit genişlik */
-        height: 300px; /* Görsel alanı için sabit yükseklik */
-        background-color: #e0e0e0; /* Resim yoksa yer tutucu renk */
-        border-radius: 10px;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-style: italic;
-        color: #777;
-        font-size: 14px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Hafif bir gölge ekleyelim */
-      }
-
-      .about .about-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      /* Responsive Düzenlemeler */
-      @media (min-width: 769px) {
-        .about .about-content {
-          flex-direction: row; /* Büyük ekranlarda yatay hizalama */
-          justify-content: space-between; /* Metni sola, görseli sağa itmek için */
-          /* align-items: flex-start;  */
-          text-align: left;
-        }
-
-        .about .about-image {
-          order: 2; /* Resmi sağa al */
-          margin-left: 0; /* space-between kullandığımız için bu margin'e artık gerek yok */
-        }
-
-        .about .about-text {
-          order: 1; /* Metni sola al */
-        }
-      }
-
-      @media (max-width: 768px) {
-        .about h2 {
-          font-size: 32px;
-        }
-        .about .about-text p {
-          font-size: 16px;
-        }
-        .about .about-image {
-          width: 250px;
-          height: 250px;
-          margin: 0 auto; /* Mobil ortalama */
-        }
-      }
-
-      @media (max-width: 480px) {
-        .about h2 {
-          font-size: 28px;
-          margin-bottom: 20px;
-        }
-        .about .about-text p {
-          font-size: 15px;
-          margin-bottom: 15px;
-        }
-        .about {
-          padding: 60px 0;
-        }
-        .about .about-image {
-          width: 200px;
-          height: 200px;
-        }
-      }
-
-      /* The original .card styles */
+      /* Kart stilleri (opacity ve transform artık .animate-on-scroll'dan gelecek) */
       .card {
         background: #ffffff;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         padding: 20px;
         text-align: left;
-        transition: transform 0.3s ease;
-        opacity: 0; /* Keeps the card hidden initially for animation */
-        transform: translateY(
-          20px
-        ); /* Initial position for slide-up animation */
+        transition: transform 0.3s ease; /* Hover efekti için */
+        /* opacity: 0; ve transform: translateY(20px); kaldırıldı, animate-on-scroll'dan gelecek */
       }
 
       .card.is-visible {
         opacity: 1; /* Animasyonun son opacity değeri */
         transform: translateY(0); /* Animasyonun son transform değeri */
         animation: slideInUp 0.5s ease-out; /* 'forwards' kelimesi buradan kaldırıldı */
-      }
-
-      @keyframes slideInUp {
-        0% {
-          opacity: 0;
-          transform: translateY(100px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
       }
 
       .card:hover {
@@ -724,6 +516,75 @@ header {
         background: rgb(0, 113, 227);
         color: #ffffff;
         border-color: rgb(0, 113, 227);
+      }
+
+
+      /* About Section Styles */
+      .about {
+        padding: 80px 0; /* Daha fazla dikey boşluk */
+        background: #f8f8f9; /* Hafif gri bir arka plan */
+        text-align: center;
+      }
+
+      .about .container {
+        max-width: 1200px; /* Container'ın tam genişliğini kullanmasını sağlamak için */
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .about h2 {
+        font-size: 40px;
+        color: rgb(29, 29, 31);
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .about .about-content {
+        display: flex;
+        flex-direction: column; /* Mobil için dikey */
+        gap: 40px; /* Metin ve görsel arasındaki boşluk */
+        align-items: center; /* Mobil için ortalama */
+        width: 100%; /* Kapsayıcının tam genişliğini kullan */
+      }
+
+      .about .about-text {
+        flex: 1; /* Mevcut alanı doldur */
+        text-align: left; /* Metni sola hizala */
+        line-height: 1.8;
+        color: rgb(29, 29, 31);
+      }
+
+      .about .about-text p {
+        font-size: 17px;
+        margin-bottom: 20px;
+        color: rgb(29, 29, 31);
+      }
+
+      .about .about-text p:last-child {
+        margin-bottom: 0;
+      }
+
+      .about .about-image {
+        flex-shrink: 0; /* Resmin küçülmesini engelle */
+        width: 300px; /* Görsel alanı için sabit genişlik */
+        height: 300px; /* Görsel alanı için sabit yükseklik */
+        background-color: #e0e0e0; /* Resim yoksa yer tutucu renk */
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-style: italic;
+        color: #777;
+        font-size: 14px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .about .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .membership {
@@ -860,8 +721,8 @@ header {
       .testimonial-box .twitter-tweet {
         margin: 0 auto;
         max-width: 100%;
-        max-height: 270px; /* Tweet'lerin taşmasını önlemek için */
-        overflow-y: auto; /* Dikey taşma için kaydırma çubuğu */
+        max-height: 270px;
+        overflow-y: auto;
       }
 
       /* Twitter widget'ı render edildikten sonra kapsayıcıya stil uygula */
@@ -1018,89 +879,113 @@ header {
         display: block;
       }
 
-      
-/* Footer Styles */
-footer {
-  background: #1A1D23; /* Daha koyu, zengin bir arka plan rengi */
-  color: #F5F5F5;
-  padding: 40px 0; /* Daha fazla dikey boşluk */
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Üste hafif bir çizgi */
-}
+      /* Footer Styles */
+      footer {
+        background: #1a1d23; /* Daha koyu, zengin bir arka plan rengi */
+        color: #f5f5f5;
+        padding: 40px 0; /* Daha fazla dikey boşluk */
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Üste hafif bir çizgi */
+      }
 
-footer .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+      footer .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
 
-footer .footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px; /* Telif hakkı metni ile arasına daha fazla boşluk */
-  flex-wrap: wrap; /* Küçük ekranlarda alt alta geçiş */
-  gap: 20px;
-}
+      footer .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px; /* Telif hakkı metni ile arasına daha fazla boşluk */
+        flex-wrap: wrap; /* Küçük ekranlarda alt alta geçiş */
+        gap: 20px;
+      }
 
-footer img.logo {
-  height: 56px;
-  transition: transform 0.3s ease;
-}
+      footer img.logo {
+        height: 52px;
+        transition: transform 0.3s ease;
+      }
 
+      footer .social-links {
+        display: flex;
+        gap: 15px;
+      }
 
-footer .social-links {
-  display: flex;
-  gap: 15px;
-}
+      footer .social-links a {
+        color: #f5f5f5;
+        font-size: 22px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.2); /* Hafif bir çerçeve */
+        transition: all 0.3s ease; /* Tüm geçişler için */
+      }
 
-footer .social-links a {
-  color: #F5F5F5;
-  font-size: 22px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Hafif bir çerçeve */
-  transition: all 0.3s ease; /* Tüm geçişler için */
-}
+      footer .social-links a:hover {
+        color: #ffffff; /* Hover'da ikon rengi beyaz */
+        background: rgb(0, 113, 227); /* Mavi arka plan */
+        border-color: rgb(0, 113, 227); /* Çerçeve rengi mavi */
+        transform: translateY(-3px) scale(1.05); /* Hafif yukarı kayma ve büyüme */
+        box-shadow: 0 5px 15px rgba(0, 113, 227, 0.4); /* Gölgelendirme */
+      }
 
-footer .social-links a:hover {
-  color: #FFFFFF; /* Hover'da ikon rengi beyaz */
-  background: rgb(0,113,227); /* Mavi arka plan */
-  border-color: rgb(0,113,227); /* Çerçeve rengi mavi */
-  transform: translateY(-3px) scale(1.05); /* Hafif yukarı kayma ve büyüme */
-  box-shadow: 0 5px 15px rgba(0, 113, 227, 0.4); /* Gölgelendirme */
-}
+      footer p {
+        font-size: 14px;
+        color: #a0a0a0; /* Daha yumuşak bir gri tonu */
+        margin: 0;
+      }
 
-footer p {
-  font-size: 14px;
-  color: #A0A0A0; /* Daha yumuşak bir gri tonu */
-  margin: 0;
-}
+      /* Section Description Styles */
+      .section-description {
+        font-size: 18px; /* Açıklama metni boyutu */
+        color: rgb(70, 70, 70); /* Daha yumuşak bir gri tonu */
+        max-width: 700px; /* Okunabilirliği artırmak için maksimum genişlik */
+        margin: 0 auto 50px auto; /* Ortala ve altından boşluk bırak */
+        line-height: 1.6;
+      }
 
-/* Responsive Düzenlemeler (Footer) */
-@media (max-width: 768px) {
-  footer .footer-content {
-    flex-direction: column;
-    gap: 20px;
-  }
+      /* Responsive Düzenlemeler */
+      @media (min-width: 769px) {
+        .about .about-content {
+          flex-direction: row; /* Büyük ekranlarda yatay hizalama */
+          justify-content: space-between; /* Metni sola, görseli sağa itmek için */
+          /* align-items: flex-start;  */
+          text-align: left;
+        }
 
-  footer img.logo {
-    height: 35px; /* Mobil için logo boyutunu ayarla */
-  }
+        .about .about-image {
+          order: 2; /* Görseli sağa al */
+          margin-left: 40px; /* Metin ile görsel arasına boşluk ekle */
+        }
 
-  footer .social-links a {
-    font-size: 20px; /* Mobil için ikon boyutunu ayarla */
-    width: 36px;
-    height: 36px;
-  }
-}
+        .about .about-text {
+          order: 1; /* Metni sola al */
+        }
+      }
 
-      /* Responsive Styles */
+  
+
       @media (max-width: 768px) {
+        footer .footer-content {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        footer img.logo {
+          height: 35px; /* Mobil için logo boyutunu ayarla */
+        }
+
+        footer .social-links a {
+          font-size: 20px; /* Mobil için ikon boyutunu ayarla */
+          width: 36px;
+          height: 36px;
+        }
+
         header {
           padding: 10px 15px;
           width: 95%;
@@ -1111,8 +996,8 @@ footer p {
         }
 
         .logo-text {
-    font-size: 18px; /* Mobil için yazı boyutunu küçült */
-  }
+          font-size: 18px; /* Mobil için yazı boyutunu küçült */
+        }
 
         .hamburger {
           display: flex;
@@ -1274,8 +1159,8 @@ footer p {
   </head>
   <body>
     <header>
-       <div class="logo">
-        <img src="images/smart_traders_logo.png" alt="Smart Traders">
+      <div class="logo">
+        <img src="images/smart_traders_logo.png" alt="Smart Traders" />
         <span class="logo-text">SMART TRADERS</span>
       </div>
       <nav>
@@ -1286,7 +1171,7 @@ footer p {
         </div>
         <ul class="nav-menu">
           <li><a href="#avantajlar">Avantajlar</a></li>
-          <li><a href="#about">Hakkımda</a></li>
+          <li><a href="#about">Hakkında</a></li>
           <li><a href="#testimonials">Yorumlar</a></li>
           <li><a href="#membership">Üyelik</a></li>
           <li><a href="#faq">S.S.S</a></li>
@@ -1336,9 +1221,9 @@ footer p {
           </div>
           <div class="banner-right">
             <p class="intro_right">
-              TraderJudge topluluğuna hoş geldiniz! SMC konseptleriyle başarılı
-              bir trader olmanız için ihtiyacınız olan bilgi, strateji ve
-              desteği bulacaksınız. Hayallerinizi gerçeğe dönüştürmek için
+              Smart Traders topluluğuna hoş geldiniz! SMC konseptleriyle
+              başarılı bir trader olmanız için ihtiyacınız olan bilgi, strateji
+              ve desteği bulacaksınız. Hayallerinizi gerçeğe dönüştürmek için
               yolculuğunuza bizimle başlayın!
             </p>
             <a href="#" class="join-btn" onclick="scrollToMembership()"
@@ -1351,6 +1236,8 @@ footer p {
 
     <section class="features">
       <div class="container">
+        <h2 class="section-title">Smart Traders Farkı</h2>
+        <p class="section-description">Tecrübemiz, sistemlerimiz ve topluluğumuzla piyasalarda fark yaratın.</p>
         <div class="feature-grid">
           <div class="feature-slider">
             <div class="feature-box">
@@ -1417,18 +1304,19 @@ footer p {
 
     <section class="avantajlar" id="avantajlar">
       <div class="container">
-        <h1>Üyelik Avantajları</h1>
+        <h1 class="animate-on-scroll">Üyelik Avantajları</h1>
+        <p class="section-description animate-on-scroll">Smart Traders üyeliği ile finansal hedeflerinize ulaşmanın ayrıcalıklarını keşfedin.</p>
         <div class="card-grid">
-          <div class="card">
+          <div class="card animate-on-scroll">
             <img src="images/avantajlar/ozel_topluluk.png" alt="Özel Eğitim" />
             <h3>Özel Topluluk</h3>
             <p>
-              SmartTraders topluluğuna katılarak aynı hedefe sahip traderlarla
+              Smart Traders topluluğuna katılarak aynı hedefe sahip traderlarla
               bağlantı kurun. Bilgi paylaşımı, fikir alışverişi ve destekle
               stratejilerinizi güçlendirin.
             </p>
           </div>
-          <div class="card">
+          <div class="card animate-on-scroll">
             <img src="images/avantajlar/dersler.webp" alt="Özel Eğitim" />
             <h3>Tüm Dersler</h3>
             <p>
@@ -1437,16 +1325,16 @@ footer p {
               her şey burada.
             </p>
           </div>
-          <div class="card">
+          <div class="card animate-on-scroll">
             <img src="images/avantajlar/osok.webp" alt="Özel Eğitim" />
             <h3>TJ'in Özel Modelleri</h3>
             <p>
-              TraderJudge’ın benzersiz Modelleri ile piyasaları analiz etmeyi
+              TraderJudge’ın benzersiz modelleri ile piyasaları analiz etmeyi
               öğrenin. Hemen başlayarak stratejilerinizi bir üst seviyeye
               taşıyın.
             </p>
           </div>
-          <div class="card">
+          <div class="card animate-on-scroll">
             <img src="images/avantajlar/canli.png" alt="Özel Eğitim" />
             <h3>Canlı Yayınlar</h3>
             <p>
@@ -1455,7 +1343,7 @@ footer p {
               hızlandırın.
             </p>
           </div>
-          <div class="card">
+          <div class="card animate-on-scroll">
             <img src="images/avantajlar/analiz.webp" alt="Özel Eğitim" />
             <h3>İşlem Analizleri</h3>
             <p>
@@ -1464,7 +1352,7 @@ footer p {
               yaratın.
             </p>
           </div>
-          <div class="card">
+          <div class="card animate-on-scroll">
             <img src="images/avantajlar/ekstra.webp" alt="Özel Eğitim" />
             <h3>Ekstra Dersler</h3>
             <p>
@@ -1478,29 +1366,13 @@ footer p {
     </section>
 
 
-    <section class="why-us-section" id="why-us">
-    <div class="container">
-      <h2 class="section-title">Neden Smart Traders?</h2>
-      <div class="why-content-grid">
-        <div class="why-item">
-          <h3>Neden Smart Money Concepts (SMC)?</h3>
-          <p>Smart Money Concepts, piyasaları 'akıllı para'nın bakış açısıyla anlamaya odaklanan, derinlemesine bir ticaret yaklaşımıdır. Geleneksel perakende ticaret yöntemlerinin aksine, SMC likidite, emir blokları ve fiyat hareketlerinin ardındaki gerçek niyetleri analiz eder. Bu sayede, piyasanın manipülasyonlarını daha iyi anlayabilir ve büyük oyuncuların izini takip ederek daha bilinçli işlem kararları alabilirsiniz. SMC, sadece bir strateji değil, piyasayı okuma ve anlama biçiminizi kökten değiştiren bir felsefedir.</p>
-        </div>
-        <div class="why-item">
-          <h3>Neden Smart Traders?</h3>
-          <p>Piyasalarda doğru rehberliğe ulaşmanın ne kadar zor olduğunu bizzat deneyimlemiş biri olarak, Smart Traders topluluğunu kurdum. Amacım, bilgi kirliliğinden uzak, Michael Huddleston (ICT)'dan aldığım mentorlukla pekiştirilmiş, kanıtlanmış SMC prensiplerini anlaşılır ve pratik bir şekilde sunmaktır. Burada sadece teknik bilgiler değil, aynı zamanda disiplin, psikoloji ve risk yönetimi gibi başarılı bir trader için vazgeçilmez olan unsurları da kapsayan kapsamlı bir eğitim bulacaksınız. Benimle birlikte, piyasalarda kendinize güvenle yer edinecek ve sürdürülebilir başarıya ulaşacaksınız.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
     <section class="about" id="about">
       <div class="container">
         <div class="about-content">
           <div class="about-text">
-            <h2>Hakkımda ve TraderJudge</h2>
-
-            <p>
+            <h2 class="animate-on-scroll">TraderJudge Kimdir?</h2>
+            <p class="section-description animate-on-scroll">Finans piyasalarındaki yolculuğumu ve bu özel eğitim topluluğunu neden kurduğumu öğrenin.</p>
+            <p class="animate-on-scroll">
               Finans dünyasında 6 yılı aşkın bir süredir, farklı piyasa
               koşullarında portföyümü istikrarlı bir şekilde büyütme fırsatı
               buldum. Bu yolculukta edindiğim en değerli bilgi, teoriden ziyade,
@@ -1511,21 +1383,21 @@ footer p {
               boyuta taşıdı.
             </p>
 
-            <p>
+            <p class="animate-on-scroll">
               Bu özel topluluğu kurmadan önce, piyasaların hem yükseliş hem de
               düşüş dönemlerinde kendi yöntemlerimi geliştirdim ve sabırla
               rafine ettim. Bu süreçte, profesyonel ve henüz yolun başında olan
               birçok trader'a mentorluk yaparak onların da başarıya ulaşmalarına
               destek oldum.
             </p>
-            <p>
+            <p class="animate-on-scroll">
               Şimdi ise, yıllardır bana başarı getiren ve kanıtlanmış bu
               prensipleri kullanarak, sizlerin de piyasalarda kendinize güvenle
               yer edinmenize yardımcı olmak istiyorum. Bu topluluk, birlikte
               öğrenme ve büyüme yolculuğumuzun bir başlangıcı.
             </p>
           </div>
-          <div class="about-image">
+          <div class="about-image animate-on-scroll">
             <img
               src="https://placehold.co/300x300/E0E0E0/777777?text=TraderJudge Foto???"
               alt="Hakkımda Resim"
@@ -1537,7 +1409,8 @@ footer p {
 
     <section class="testimonials" id="testimonials">
       <div class="container">
-        <h2>Üyeler Ne Diyor</h2>
+        <h2 class="animate-on-scroll">Üyeler Ne Diyor</h2>
+        <p class="section-description animate-on-scroll">Başarılı traderların Smart Traders hakkındaki gerçek yorumlarını ve deneyimlerini okuyun.</p>
         <div class="testimonials-carousel">
           <div class="carousel-dots">
             <button class="carousel-dot active" data-index="0"></button>
@@ -1629,9 +1502,10 @@ footer p {
 
     <section class="membership" id="membership">
       <div class="container">
-        <h2>Üyelik Planları</h2>
+        <h2 class="animate-on-scroll">Üyelik Planları</h2>
+        <p class="section-description animate-on-scroll">Hedeflerinize uygun planı seçerek Smart Traders ailesine katılın.</p>
         <div class="card-grid">
-          <div class="card">
+          <div class="card animate-on-scroll">
             <div class="title-row">
               <div class="plan-info">
                 <h3>Standart</h3>
@@ -1656,7 +1530,7 @@ footer p {
             </ul>
             <a href="#">Katıl</a>
           </div>
-          <div class="card">
+          <div class="card animate-on-scroll">
             <div class="title-row">
               <div class="plan-info">
                 <h3>Eğitim</h3>
@@ -1680,7 +1554,7 @@ footer p {
             </ul>
             <a href="#">Katıl</a>
           </div>
-          <div class="card">
+          <div class="card animate-on-scroll">
             <div class="title-row">
               <div class="plan-info">
                 <h3>Profesyonel</h3>
@@ -1708,13 +1582,13 @@ footer p {
       </div>
     </section>
 
-
-    <section class="faq">
+    <section class="faq" id="faq">
       <div class="container">
-        <h2>Sıkça Sorulan Sorular</h2>
+        <h2 class="animate-on-scroll">Sıkça Sorulan Sorular</h2>
+        <p class="section-description animate-on-scroll">Smart Traders ve eğitimlerimiz hakkında merak ettiklerinizin cevapları burada.</p>
         <div class="accordion">
           <div class="accordion-item">
-            <div class="accordion-header">
+            <div class="accordion-header animate-on-scroll">
               Smart Traders üyeliği bana neler kazandıracak?
               <i class="fas fa-plus"></i>
             </div>
@@ -1723,7 +1597,7 @@ footer p {
             </div>
           </div>
           <div class="accordion-item">
-            <div class="accordion-header">
+            <div class="accordion-header animate-on-scroll">
               SMC stratejilerini daha önce hiç duymadım, yine de katılabilir miyim?
               <i class="fas fa-plus"></i>
             </div>
@@ -1732,7 +1606,7 @@ footer p {
             </div>
           </div>
           <div class="accordion-item">
-            <div class="accordion-header">
+            <div class="accordion-header animate-on-scroll">
               Canlı yayınlar ne sıklıkta yapılıyor ve hangi konuları kapsıyor?
               <i class="fas fa-plus"></i>
             </div>
@@ -1741,21 +1615,27 @@ footer p {
             </div>
           </div>
           <div class="accordion-item">
-            <div class="accordion-header">
+            <div class="accordion-header animate-on-scroll">
               Eğitim materyallerine nasıl ve ne kadar süreyle erişebilirim?
               <i class="fas fa-plus"></i>
             </div>
             <div class="accordion-content">
-              Üyeliğiniz süresince tüm derslere, video kütüphanesine ve piyasa analizlerine 7/24 erişim sağlayabilirsiniz. İçeriklerimiz sürekli güncellenmekte ve yeni materyaller eklenmektedir, böylece öğrenme yolculuğunuz hiç bitmez.
+              Üyelikle birlikte dersler, video kütüphanesi ve analizlere 24/7
+              erişim sağlarsınız. Tüm içerikler, kendi temponuzda öğrenmeniz
+              için çevrimiçi platformda sunulur.
             </div>
           </div>
           <div class="accordion-item">
-            <div class="accordion-header">
+            <div class="accordion-header animate-on-scroll">
               Topluluğunuzda nasıl bir destek ortamı var?
               <i class="fas fa-plus"></i>
             </div>
             <div class="accordion-content">
-              Özel topluluğumuz, benzer hedeflere sahip traderların bir araya geldiği, birbirine destek olduğu ve bilgi alışverişinde bulunduğu sıcak bir ortamdır. Burada sorularınızı sorabilir, fikirlerinizi paylaşabilir ve Fatih Özkan'dan doğrudan destek alabilirsiniz. Birlikte öğrenmek ve büyümek için harika bir yer!
+              Özel topluluğumuz, benzer hedeflere sahip traderların bir araya
+              geldiği, birbirine destek olduğu ve bilgi alışverişinde bulunduğu
+              sıcak bir ortamdır. Burada sorularınızı sorabilir, fikirlerinizi
+              paylaşabilir ve Fatih Özkan'dan doğrudan destek alabilirsiniz.
+              Birlikte öğrenmek ve büyümek için harika bir yer!
             </div>
           </div>
         </div>
@@ -1765,8 +1645,11 @@ footer p {
     <footer>
       <div class="container">
         <div class="footer-content">
-          <!-- <img src="images/logo.png" alt="SmartTraders" class="logo" /> -->
-          <img src="images/smart_traders_logo.png" alt="SmartTraders" class="logo" />
+          <img
+            src="images/smart_traders_logo.png"
+            alt="SmartTraders"
+            class="logo"
+          />
           <div class="social-links">
             <a href="https://x.com" target="_blank" aria-label="Twitter"
               ><i class="fab fa-x-twitter"></i
@@ -1800,10 +1683,10 @@ footer p {
         { threshold: 0.1 }
       ); // Trigger when 10% of the element is visible
 
-      // Observe all elements with the class 'card'
+      // Observe all elements with the class 'animate-on-scroll'
       document
-        .querySelectorAll(".card")
-        .forEach((card) => observer.observe(card));
+        .querySelectorAll(".animate-on-scroll")
+        .forEach((el) => observer.observe(el));
 
       // Testimonials Carousel
       const carouselInner = document.querySelector(".carousel-inner");
