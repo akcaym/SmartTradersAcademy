@@ -946,14 +946,10 @@ footer .footer-content {
 }
 
 footer img.logo {
-  height: 40px; /* Logoyu biraz büyüt */
-  filter: brightness(0) invert(1); /* Beyaz logo için */
+  height: 56px;
   transition: transform 0.3s ease;
 }
 
-footer img.logo:hover {
-  transform: scale(1.08); /* Hafif büyütme efekti */
-}
 
 footer .social-links {
   display: flex;
@@ -962,13 +958,13 @@ footer .social-links {
 
 footer .social-links a {
   color: #F5F5F5;
-  font-size: 22px; /* İkon boyutunu büyüt */
-  width: 40px; /* İkon için sabit genişlik */
-  height: 40px; /* İkon için sabit yükseklik */
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%; /* Yuvarlak arka plan */
+  border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.2); /* Hafif bir çerçeve */
   transition: all 0.3s ease; /* Tüm geçişler için */
 }
@@ -1012,6 +1008,10 @@ footer p {
           width: 95%;
         }
 
+        .logo img {
+          height: 40px;
+        }
+        
         .logo-text {
     font-size: 18px; /* Mobil için yazı boyutunu küçült */
   }
@@ -1203,7 +1203,7 @@ footer p {
       <div class="container">
         <div class="timer-box">
           <div class="timerwrapper">
-            <h1>Açılışa Özel Üyelik İçin SON</h1>
+            <h1>Lansmana özel indirim için</h1>
             <div class="timebox">
               <div class="time">
                 <h2 id="days">00</h2>
@@ -1659,7 +1659,8 @@ footer p {
     <footer>
       <div class="container">
         <div class="footer-content">
-          <img src="images/logo.png" alt="SmartTraders Logo" class="logo" />
+          <!-- <img src="images/logo.png" alt="SmartTraders" class="logo" /> -->
+          <img src="images/smart_traders_logo.png" alt="SmartTraders" class="logo" />
           <div class="social-links">
             <a href="https://x.com" target="_blank" aria-label="Twitter"
               ><i class="fab fa-x-twitter"></i
