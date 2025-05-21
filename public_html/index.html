@@ -40,30 +40,41 @@
         position: relative;
       }
 
-      /* Header Styles */
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #efefefbf;
-        padding: 10px 20px;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 10px 0px;
-        border-radius: 15px;
-        margin: 10px auto;
-        position: fixed;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        max-width: 1200px;
-        z-index: 1000;
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-      }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #efefefbf;
+  padding: 10px 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 10px 0px;
+  border-radius: 15px;
+  margin: 10px auto;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.logo {
+  display: flex; /* Logo ve metni aynı hizaya getirmek için flex kullan */
+  align-items: center; /* Dikey olarak ortala */
+  gap: 10px; /* Logo ve metin arasına boşluk */
+}
 
       .logo img {
-        height: 50px;
+        height: 56px;
       }
+      .logo-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: rgb(29, 29, 31);
+  white-space: nowrap; /* Metnin tek satırda kalmasını sağla */
+}
 
       nav ul.nav-menu {
         list-style: none;
@@ -90,8 +101,9 @@
         padding: 8px 16px;
         border-radius: 10px;
         text-decoration: none;
+        font-family: "Poppins", sans-serif;
         font-size: 16px;
-        font-weight: 700;
+        font-weight: 500;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
@@ -1000,6 +1012,10 @@ footer p {
           width: 95%;
         }
 
+        .logo-text {
+    font-size: 18px; /* Mobil için yazı boyutunu küçült */
+  }
+
         .hamburger {
           display: flex;
         }
@@ -1160,9 +1176,9 @@ footer p {
   </head>
   <body>
     <header>
-      <div class="logo">
-        <img src="images/logo.png" alt="SmartTraders Logo" />
-        SMART TRADERS
+       <div class="logo">
+        <img src="images/smart_traders_logo.png" alt="Smart Traders">
+        <span class="logo-text">SMART TRADERS</span>
       </div>
       <nav>
         <div class="hamburger">
