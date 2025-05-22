@@ -211,17 +211,25 @@
 
       /* Banner Styles */
       .banner {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-          url("images/bg_chart.avif");
+        /* background: linear-gradient(rgba(29, 29, 31, 0.4), rgba(29, 29, 31, 0.4)),url("images/banner_bg.png"); */
+        /* background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),url("images/banner_bg.png"); */
+        background: url("images/banner_bg.png");
         background-size: cover;
         background-position: center;
         margin-top: 20px;
-        height: 500px;
+        height: auto;
+        min-height: 350px;
+        padding: 20px 0;
         color: #ffffff;
+        /* color: rgb(29, 29, 31); */
         position: relative;
         display: flex;
         align-items: center;
         overflow: hidden;
+      }
+
+      .banner .container {
+        max-width: 90%;
       }
 
       .banner-content {
@@ -229,7 +237,7 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        max-width: 1200px;
+        /* max-width: 1200px; */
         margin: 0 auto;
         padding: 0 20px;
       }
@@ -241,7 +249,9 @@
       }
 
       .banner-left p.intro_left {
+        font-family: "Poppins", sans-serif;
         font-size: 40px;
+        font-weight: 500;
         line-height: 1.6;
         text-align: left;
         opacity: 0;
@@ -258,6 +268,8 @@
       }
 
       .banner-right p.intro_right {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
         font-size: 20px;
         line-height: 1.8;
         text-align: right;
@@ -461,8 +473,8 @@
 
       .about .about-image {
         flex-shrink: 0; /* Resmin küçülmesini engelle */
-        width: 300px; /* Görsel alanı için sabit genişlik */
-        height: 300px; /* Görsel alanı için sabit yükseklik */
+        width: 200px;
+        height: 200px;
         background-color: #e0e0e0; /* Resim yoksa yer tutucu renk */
         border-radius: 10px;
         overflow: hidden;
@@ -472,7 +484,8 @@
         font-style: italic;
         color: #777;
         font-size: 14px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Hafif bir gölge ekleyelim */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Hafif bir gölge ekleyelim */
+        border-radius: 1000px;
       }
 
       .about .about-image img {
@@ -1149,7 +1162,7 @@
 
         .banner {
           height: auto;
-          min-height: 400px;
+          /* min-height: 400px; */
           padding: 20px 0;
         }
 
@@ -1395,7 +1408,7 @@
         <h2 class="section-title">Üyelik Avantajları</h2>
         <div class="card-grid">
           <div class="card">
-            <img src="images/avantajlar/ozel_topluluk.png" alt="Özel Eğitim" />
+            <img src="images/avantajlar/ozel_topluluk.png" alt="Özel Topluluk" />
             <h3>Özel Topluluk</h3>
             <p>
               Smart Traders topluluğuna katılarak aynı hedefe sahip traderlarla
@@ -1404,7 +1417,7 @@
             </p>
           </div>
           <div class="card">
-            <img src="images/avantajlar/dersler.webp" alt="Özel Eğitim" />
+            <img src="images/avantajlar/dersler.webp" alt="Tüm Dersler" />
             <h3>Tüm Dersler</h3>
             <p>
               SMC konseptlerini derinlemesine öğrenmek için kapsamlı ders
@@ -1413,7 +1426,7 @@
             </p>
           </div>
           <div class="card">
-            <img src="images/avantajlar/osok.webp" alt="Özel Eğitim" />
+            <img src="images/avantajlar/osok.png" alt="TJ PDA ve sipariş teslimatı model" />
             <h3>TJ'in Özel Modelleri</h3>
             <p>
               TraderJudge’ın benzersiz modelleri ile piyasaları analiz etmeyi
@@ -1422,7 +1435,7 @@
             </p>
           </div>
           <div class="card">
-            <img src="images/avantajlar/canli.png" alt="Özel Eğitim" />
+            <img src="images/avantajlar/canli.png" alt="Canlı Yayınlar" />
             <h3>Canlı Yayınlar</h3>
             <p>
               Haftalık canlı yayınlarda TraderJudge ile buluşun. Gerçek zamanlı
@@ -1431,7 +1444,7 @@
             </p>
           </div>
           <div class="card">
-            <img src="images/avantajlar/analiz.webp" alt="Özel Eğitim" />
+            <img src="images/avantajlar/analiz.png" alt="İşlem Analizleri" />
             <h3>İşlem Analizleri</h3>
             <p>
               Detaylı işlem incelemeleriyle piyasaları daha iyi anlayın. Güncel
@@ -1440,7 +1453,7 @@
             </p>
           </div>
           <div class="card">
-            <img src="images/avantajlar/ekstra.webp" alt="Özel Eğitim" />
+            <img src="images/avantajlar/ekstra.png" alt="Ekstra Dersler" />
             <h3>Ekstra Dersler</h3>
             <p>
               Geçmiş canlı yayınlar, piyasa yorumları ve özel eğitim videolarına
@@ -1464,7 +1477,7 @@
               buldum. Bu yolculukta edindiğim en değerli bilgi, teoriden ziyade,
               gerçekte işe yarayan pratik stratejiler oldu. Yaklaşımım her zaman
               sürdürülebilirliğe, riskleri akıllıca yönetmeye odaklandı.
-              Özellikle Michael Huddleston (ICT)'dan aldığım Smart Money
+              Özellikle Michael Huddleston'dan aldığım Smart Money
               Concepts (SMC) mentorluğu, bu alandaki vizyonumu bambaşka bir
               boyuta taşıdı.
             </p>
@@ -1484,10 +1497,7 @@
             </p>
           </div>
           <div class="about-image animated-content">
-            <img
-              src="https://placehold.co/300x300/E0E0E0/777777?text=TraderJudge Foto???"
-              alt="Hakkımda Resim"
-            />
+            <img src="images/tj_logo.jpg" alt="TraderJudge Foto" />
           </div>
         </div>
       </div>
@@ -1609,7 +1619,7 @@
               <li><i class="fas fa-check"></i> Canlı Yayınlar</li>
               <li><i class="fas fa-check"></i> Piyasa Analizleri</li>
               <li><i class="fas fa-check"></i> TJ'in Özel Modelleri</li>
-              <li><i class="fas fa-check"></i> 24/7 Market Insight</li>
+              <li><i class="fas fa-check"></i> 24/7 Piyasa Öngörüsü</li>
               <li>&nbsp;</li>
             </ul>
             <a href="#">Katıl</a>
@@ -1625,30 +1635,6 @@
                   <span class="price">$60</span
                   ><span class="price-period">/aylık</span>
                 </div>
-                <span class="discount-box">%20 KAZAN</span>
-              </div>
-            </div>
-            <ul>
-              <li><i class="fas fa-check"></i> Özel Grup</li>
-              <li><i class="fas fa-check"></i> Bütün Dersler</li>
-              <li><i class="fas fa-check"></i> Canlı Yayınlar</li>
-              <li><i class="fas fa-check"></i> Piyasa Analizleri</li>
-              <li><i class="fas fa-check"></i> TJ'in Özel Modelleri</li>
-              <li><i class="fas fa-check"></i> 24/7 Market Insight</li>
-            </ul>
-            <a href="#">Katıl</a>
-          </div>
-          <div class="card">
-            <div class="title-row">
-              <div class="plan-info">
-                <h3>Profesyonel</h3>
-                <p>12 Ay</p>
-              </div>
-              <div class="price-row">
-                <div class="price-wrapper">
-                  <span class="price">$50</span
-                  ><span class="price-period">/aylık</span>
-                </div>
                 <span class="discount-box">%25 KAZAN</span>
               </div>
             </div>
@@ -1658,7 +1644,31 @@
               <li><i class="fas fa-check"></i> Canlı Yayınlar</li>
               <li><i class="fas fa-check"></i> Piyasa Analizleri</li>
               <li><i class="fas fa-check"></i> TJ'in Özel Modelleri</li>
-              <li><i class="fas fa-check"></i> 24/7 Market Insight</li>
+              <li><i class="fas fa-check"></i> 24/7 Piyasa Öngörüsü</li>
+            </ul>
+            <a href="#">Katıl</a>
+          </div>
+          <div class="card">
+            <div class="title-row">
+              <div class="plan-info">
+                <h3>Profesyonel</h3>
+                <p>6 Ay</p>
+              </div>
+              <div class="price-row">
+                <div class="price-wrapper">
+                  <span class="price">$50</span
+                  ><span class="price-period">/aylık</span>
+                </div>
+                <span class="discount-box">%37 KAZAN</span>
+              </div>
+            </div>
+            <ul>
+              <li><i class="fas fa-check"></i> Özel Grup</li>
+              <li><i class="fas fa-check"></i> Bütün Dersler</li>
+              <li><i class="fas fa-check"></i> Canlı Yayınlar</li>
+              <li><i class="fas fa-check"></i> Piyasa Analizleri</li>
+              <li><i class="fas fa-check"></i> TJ'in Özel Modelleri</li>
+              <li><i class="fas fa-check"></i> 24/7 Piyasa Öngörüsü</li>
             </ul>
             <a href="#">Katıl</a>
           </div>
@@ -1738,14 +1748,14 @@
             class="logo"
           />
           <div class="social-links">
-            <a href="https://x.com" target="_blank" aria-label="Twitter"
+            <a href="https://x.com/TraderJudge" target="_blank" aria-label="Twitter"
               ><i class="fab fa-x-twitter"></i
             ></a>
-            <a href="https://telegram.org" target="_blank" aria-label="Telegram"
+            <a href="https://t.me/+hQUTqJXgafw1M2E8" target="_blank" aria-label="Telegram"
               ><i class="fab fa-telegram-plane"></i
             ></a>
-            <a href="mailto:info@traderjudge.com" aria-label="Email"
-              ><i class="fas fa-envelope"></i
+            <a href="https://www.youtube.com/@TraderJudge" target="_blank" aria-label="Youtube"
+              ><i class="fab fa-youtube"></i
             ></a>
           </div>
         </div>
