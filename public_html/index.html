@@ -809,7 +809,7 @@
         margin: 0 auto;
         overflow: hidden;
         /* Sabit yükseklik, tweet'lerin boyutuna uygun */
-        /*height: 700px; */
+        /* max-height: 800px; */
       }
 
       .carousel-inner {
@@ -1133,7 +1133,9 @@
         }
 
         .logo-text {
-          font-size: 18px; /* Mobil için yazı boyutunu küçült */
+           /* Mobil için yazı boyutunu küçült */
+          /* font-size: 18px; */
+          display: none;
         }
 
         .hamburger {
@@ -1243,6 +1245,13 @@
         .logo img {
           height: 40px;
         }
+
+        .logo-text {
+           /* Mobil için yazı boyutunu küçült */
+          /* font-size: 18px; */
+          display: none;
+        }
+
 
         .join-btn {
           padding: 6px 10px;
@@ -1874,7 +1883,7 @@
       // Initial load and resize handling
       window.addEventListener("resize", updateCarousel);
       updateCarousel(); // Call once on load to set initial state
-      startAutoSlide(); // Start the auto-slide
+      startAutoSlide(); // Start the auto-slidexxx
 
       // Twitter Widget
       window.twttr = (function (d, s, id) {
