@@ -336,74 +336,105 @@
         }
       }
 
-      /* Features Section */
       .features {
-        padding: 40px 0;
-        background: #ffffff;
-        text-align: center;
+        padding: 60px 0 60px 0;
+        background-color: transparent; /* Arka plan rengi kaldırıldı */
+        overflow: hidden; /* İçeriğin taşmasını gizle */
+        position: relative;
       }
 
-      .feature-grid {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      .scrolling-text-container {
+        overflow: hidden;
+        position: relative;
         width: 100%;
-        max-width: 1000px; /* Container ile uyumlu */
-        overflow: hidden; /* Taşmayı gizle */
-        padding: 20px 0;
-        margin: 0 auto; /* Ortalama */
+        mask-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0) 0%,
+          rgb(0, 0, 0) 18%,
+          rgb(0, 0, 0) 82%,
+          rgba(0, 0, 0, 0) 100%
+        );
       }
 
-      .feature-slider {
+      .scrolling-text-content {
         display: flex;
-        white-space: nowrap;
-        animation: slideLeft 20s linear infinite;
         width: max-content;
-        gap: 120px;
+        animation: scroll-left 20s linear infinite; /* Animasyon süresi 25s'e düşürülerek hızlandırıldı */
       }
 
-      .feature-box {
-        flex: 0 0 auto;
-        border: none;
-        padding: 15px;
-        text-align: center;
+      .feature-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 4px;
+        margin: 0 20px; /* Öğeler arasında boşluk */
+        min-width: 180px; /* Her öğenin minimum genişliği */
+        flex-shrink: 0; /* Öğelerin küçülmesini engelle */
+        color: rgb(29, 29, 31); /* Tüm metin rengi ayarlandı */
       }
 
-      .feature-box .stat {
-        font-size: 28px;
-        font-weight: 700;
-        color: rgb(29, 29, 31);
-        margin-bottom: 5px;
+      .feature-item .number {
+        font-size: 28px; /* Rakamların font boyutu küçültüldü */
+        font-weight: 600;
+        color: rgb(29, 29, 31); /* Rakam rengi ayarlandı */
+        line-height: 1.2;
       }
 
-      .feature-box .label {
+      .feature-item .text {
         font-size: 14px;
-        color: rgb(29, 29, 31);
-        line-height: 1.5;
+        font-weight: 400;
+        line-height: 1.2;
+        white-space: nowrap; /* Metnin tek satırda kalmasını sağla */
+        text-align: center;
+        color: rgb(29, 29, 31); /* Yazı rengi ayarlandı */
       }
 
-      /* Sağdan sola kaydırma animasyonu */
-      @keyframes slideLeft {
+      @keyframes scroll-left {
         0% {
-          transform: translateX(0);
+          transform: translateX(0%);
         }
         100% {
-          transform: translateX(
-            -50%
-          ); /* Yarı genişlik kadar kaydır (tekrar için) */
+          transform: translateX(-50%);
         }
       }
 
-      /* Responsive ayarlar */
+      /* Responsive Düzenlemeler */
       @media (max-width: 768px) {
-        .feature-slider {
-          animation: slideLeft 20s linear infinite;
+        .features {
+          padding: 28px 0;
+        }
+
+        .feature-item {
+          margin: 0 25px;
+          min-width: 150px;
+        }
+
+        .feature-item .number {
+          font-size: 28px;
+        }
+
+        .feature-item .text {
+          font-size: 14px;
         }
       }
 
       @media (max-width: 480px) {
-        .feature-slider {
-          animation: slideLeft 20s linear infinite;
+        .features {
+          padding: 20px 0;
+        }
+
+        .feature-item {
+          margin: 0 15px;
+          min-width: 120px;
+        }
+
+        .feature-item .number {
+          font-size: 24px; /* Rakamların font boyutu küçültüldü */
+        }
+
+        .feature-item .text {
+          font-size: 12px;
         }
       }
 
@@ -526,7 +557,7 @@
 
         .about .about-image {
           order: 2; /* Resmi sağa al */
-          margin-left: 0; 
+          margin-left: 0;
         }
 
         .about .about-text {
@@ -574,14 +605,12 @@
         padding: 20px;
         text-align: left;
         transition: transform 0.3s ease;
-        opacity: 0; 
-        transform: translateY(
-          20px
-        ); 
+        opacity: 0;
+        transform: translateY(20px);
       }
 
       .card.is-visible {
-        opacity: 1; 
+        opacity: 1;
         transform: translateY(0);
         animation: slideInUp 0.5s ease-out; /* 'forwards' kelimesi buradan kaldırıldı */
       }
@@ -666,7 +695,7 @@
       }
 
       .membership {
-        clear: both; 
+        clear: both;
         padding: 60px 0;
         text-align: center;
         background: rgb(245, 245, 247);
@@ -729,23 +758,23 @@
       }
 
       .price-period {
-        font-size: 16px; 
+        font-size: 16px;
         color: rgb(29, 29, 31);
         margin-left: 5px;
       }
       .price-row {
         display: flex;
-        align-items: baseline; 
+        align-items: baseline;
         width: 100%;
       }
 
       .discount-box {
-        background: rgba(0, 113, 227, 0.1); 
+        background: rgba(0, 113, 227, 0.1);
         color: rgb(0, 113, 227);
         font-size: 12px;
         font-weight: 700;
         padding: 5px 10px;
-        border-radius: 10px; 
+        border-radius: 10px;
         line-height: 1;
       }
 
@@ -1344,64 +1373,63 @@
 
     <section class="features">
       <div class="container">
-        <div class="feature-grid">
-          <div class="feature-slider">
-            <div class="feature-box">
-              <div class="stat">6+</div>
-              <div class="label">yıllık tecrübe</div>
+        <div class="scrolling-text-container">
+          <div class="scrolling-text-content">
+            <div class="feature-item">
+              <span class="number">6+</span>
+              <span class="text">yıllık tecrübe</span>
             </div>
-            <div class="feature-box">
-              <div class="stat">2</div>
-              <div class="label">özel sistem</div>
+            <div class="feature-item">
+              <span class="number">2</span>
+              <span class="text">özel sistem</span>
             </div>
-            <div class="feature-box">
-              <div class="stat">20+</div>
-              <div class="label">ders</div>
+            <div class="feature-item">
+              <span class="number">20+</span>
+              <span class="text">ders</span>
             </div>
-            <div class="feature-box">
-              <div class="stat">25+</div>
-              <div class="label">saat video</div>
+            <div class="feature-item">
+              <span class="number">25+</span>
+              <span class="text">saat video</span>
             </div>
-            <div class="feature-box">
-              <div class="stat">1</div>
-              <div class="label">özel topluluk</div>
+            <div class="feature-item">
+              <span class="number">1</span>
+              <span class="text">özel topluluk</span>
             </div>
-            <div class="feature-box">
-              <div class="stat">2</div>
-              <div class="label">haftalık canlı yayın</div>
+            <div class="feature-item">
+              <span class="number">2</span>
+              <span class="text">haftalık canlı yayın</span>
             </div>
-            <div class="feature-box">
-              <div class="stat">24/7</div>
-              <div class="label">Piyasa Öngörüsü</div>
+            <div class="feature-item">
+              <span class="number">24/7</span>
+              <span class="text">piyasa öngörüsü</span>
             </div>
-
-            <div class="feature-box">
-              <div class="stat">6+</div>
-              <div class="label">yıllık tecrübe</div>
+            <div class="feature-item">
+              <span class="number">6+</span>
+              <span class="text">yıllık tecrübe</span>
             </div>
-            <div class="feature-box">
-              <div class="stat">2</div>
-              <div class="label">özel sistem</div>
+            <div class="feature-item">
+              <span class="number">2</span>
+              <span class="text">özel sistem</span>
             </div>
-            <div class="feature-box">
-              <div class="stat">20+</div>
-              <div class="label">ders</div>
+            <div class="feature-item">
+              <span class="number">20+</span>
+              <span class="text">ders</span>
             </div>
-            <div class="feature-box">
-              <div class="stat">25+</div>
-              <div class="label">saat video</div>
+            <div class="feature-item">
+              <span class="number">25+</span>
+              <span class="text">saat video</span>
             </div>
-            <div class="feature-box">
-              <div class="stat">1</div>
-              <div class="label">özel topluluk</div>
+            <div class="feature-item">
+              <span class="number">1</span>
+              <span class="text">özel topluluk</span>
             </div>
-            <div class="feature-box">
-              <div class="stat">2</div>
-              <div class="label">haftalık canlı yayın</div>
+            <div class="feature-item">
+              <span class="number">2</span>
+              <span class="text">haftalık canlı yayın</span>
             </div>
-            <div class="feature-box">
-              <div class="stat">24/7</div>
-              <div class="label">Piyasa Öngörüsü</div>
+            <div class="feature-item">
+              <span class="number">24/7</span>
+              <span class="text">piyasa öngörüsü</span>
             </div>
           </div>
         </div>
