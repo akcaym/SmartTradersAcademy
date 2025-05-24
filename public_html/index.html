@@ -536,17 +536,49 @@
         display: block;
       }
 
-      /* Animasyon için başlangıç stilleri */
+      /* Animasyon için başlangıç stilleri xxx */
       .animated-content {
         opacity: 0;
         transform: translateY(20px);
-        transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Animasyon geçiş süresi */
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
       }
 
       .animated-content.is-visible {
         opacity: 1;
         transform: translateY(0);
       }
+
+      .animated-content-text {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        /* animation: typingEffect 2s steps(400, end) forwards,fadeInUp 0.5s ease-out forwards; */
+      }
+
+      .animated-content-text.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* 
+@keyframes typingEffect {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
 
       /* Responsive Düzenlemeler */
       @media (min-width: 769px) {
@@ -1105,7 +1137,7 @@
       .section-title .is-visible p {
         opacity: 1;
         transform: translateY(0);
-        animation: slideInUp 0.5s ease-out;
+        animation: slideInUp 5s ease-out !important;
       }
 
       @media (max-width: 768px) {
@@ -1134,7 +1166,7 @@
         }
 
         .logo-text {
-           /* Mobil için yazı boyutunu küçült */
+          /* Mobil için yazı boyutunu küçült */
           /* font-size: 18px; */
           display: none;
         }
@@ -1248,11 +1280,10 @@
         }
 
         .logo-text {
-           /* Mobil için yazı boyutunu küçült */
+          /* Mobil için yazı boyutunu küçült */
           /* font-size: 18px; */
           display: none;
         }
-
 
         .join-btn {
           padding: 6px 10px;
@@ -1324,7 +1355,9 @@
           <li><a href="#faq">SSS</a></li>
         </ul>
       </nav>
-      <a href="#membership" class="join-btn" onclick="scrollToMembership(event)">Hemen Katıl</a>
+      <a href="#membership" class="join-btn" onclick="scrollToMembership(event)"
+        >Hemen Katıl</a
+      >
     </header>
 
     <section class="countdown">
@@ -1371,7 +1404,12 @@
               ve desteği bulacaksınız. Hayallerinizi gerçeğe dönüştürmek için
               yolculuğunuza bizimle başlayın!
             </p>
-            <a href="#membership" class="join-btn" onclick="scrollToMembership(event)">Hemen Katıl</a>
+            <a
+              href="#membership"
+              class="join-btn"
+              onclick="scrollToMembership(event)"
+              >Hemen Katıl</a
+            >
           </div>
         </div>
       </div>
@@ -1513,10 +1551,10 @@
     <section class="about" id="about">
       <div class="container">
         <div class="about-content">
-          <div class="about-text animated-content">
+          <div class="about-text">
             <h2 class="section-title">TraderJudge Kimdir?</h2>
 
-            <p>
+            <p class="animated-content-text">
               Finans dünyasında 6 yılı aşkın bir süredir, farklı piyasa
               koşullarında portföyümü istikrarlı bir şekilde büyütme fırsatı
               buldum. Bu yolculukta edindiğim en değerli bilgi, teoriden ziyade,
@@ -1527,14 +1565,14 @@
               taşıdı.
             </p>
 
-            <p>
+            <p class="animated-content-text">
               Bu özel topluluğu kurmadan önce, piyasaların hem yükseliş hem de
               düşüş dönemlerinde kendi yöntemlerimi geliştirdim ve sabırla
               rafine ettim. Bu süreçte, profesyonel ve henüz yolun başında olan
               birçok trader'a mentorluk yaparak onların da başarıya ulaşmalarına
               destek oldum.
             </p>
-            <p>
+            <p class="animated-content-text">
               Şimdi ise, yıllardır bana başarı getiren ve kanıtlanmış bu
               prensipleri kullanarak, sizlerin de piyasalarda kendinize güvenle
               yer edinmenize yardımcı olmak istiyorum. Bu topluluk, birlikte
@@ -1836,7 +1874,11 @@
 
       // Observe all elements with the class 'card' and 'section-title'
       document
-        .querySelectorAll(".card, .section-title, .animated-content")
+        // .querySelectorAll(".card, .section-title, .animated-content")
+        .querySelectorAll(
+          ".card, .section-title, .animated-content, .animated-content-text"
+        )
+
         .forEach((el) => observer.observe(el));
 
       // Testimonials Carousel
@@ -1935,15 +1977,14 @@
       const x = setInterval(updateTimer, 1000);
       updateTimer(); // Initial call to display immediately
 
-
       // Logo ve logo yazısına tıklama olayını dinle
-document.querySelector(".logo").addEventListener("click", (event) => {
-  event.preventDefault(); // Varsayılan bağlantı davranışını engeller
-  window.scrollTo({
-    top: 0, // Sayfanın en üstüne kaydır
-    behavior: "smooth", // Sorunsuz kaydırma efekti
-  });
-});
+      document.querySelector(".logo").addEventListener("click", (event) => {
+        event.preventDefault(); // Varsayılan bağlantı davranışını engeller
+        window.scrollTo({
+          top: 0, // Sayfanın en üstüne kaydır
+          behavior: "smooth", // Sorunsuz kaydırma efekti
+        });
+      });
 
       // Hamburger Menu
       const hamburger = document.querySelector(".hamburger");
@@ -1955,10 +1996,11 @@ document.querySelector(".logo").addEventListener("click", (event) => {
       });
 
       document.querySelectorAll(".nav-menu li a").forEach((link) => {
-        link.addEventListener("click", (event) => { // 'event' parametresini ekledik
+        link.addEventListener("click", (event) => {
+          // 'event' parametresini ekledik
           event.preventDefault(); // Varsayılan bağlantı davranışını engeller
 
-          const targetId = link.getAttribute('href').substring(1); // '#' karakterini kaldırdık
+          const targetId = link.getAttribute("href").substring(1); // '#' karakterini kaldırdık
           const targetElement = document.getElementById(targetId);
 
           if (targetElement) {
@@ -2005,7 +2047,6 @@ document.querySelector(".logo").addEventListener("click", (event) => {
           .getElementById("membership")
           .scrollIntoView({ behavior: "smooth" });
       }
-
     </script>
   </body>
 </html>
