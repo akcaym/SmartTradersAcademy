@@ -63,6 +63,7 @@
         display: flex; /* Logo ve metni aynı hizaya getirmek için flex kullan */
         align-items: center;
         gap: 10px;
+        cursor: pointer;
       }
 
       .logo img {
@@ -1323,9 +1324,7 @@
           <li><a href="#faq">SSS</a></li>
         </ul>
       </nav>
-      <a href="#" class="join-btn" onclick="scrollToMembership()"
-        >Hemen Katıl</a
-      >
+      <a href="#membership" class="join-btn" onclick="scrollToMembership(event)">Hemen Katıl</a>
     </header>
 
     <section class="countdown">
@@ -1372,9 +1371,7 @@
               ve desteği bulacaksınız. Hayallerinizi gerçeğe dönüştürmek için
               yolculuğunuza bizimle başlayın!
             </p>
-            <a href="#" class="join-btn" onclick="scrollToMembership()"
-              >Hemen Katıl</a
-            >
+            <a href="#membership" class="join-btn" onclick="scrollToMembership(event)">Hemen Katıl</a>
           </div>
         </div>
       </div>
@@ -1938,6 +1935,16 @@
       const x = setInterval(updateTimer, 1000);
       updateTimer(); // Initial call to display immediately
 
+
+      // Logo ve logo yazısına tıklama olayını dinle
+document.querySelector(".logo").addEventListener("click", (event) => {
+  event.preventDefault(); // Varsayılan bağlantı davranışını engeller
+  window.scrollTo({
+    top: 0, // Sayfanın en üstüne kaydır
+    behavior: "smooth", // Sorunsuz kaydırma efekti
+  });
+});
+
       // Hamburger Menu
       const hamburger = document.querySelector(".hamburger");
       const navMenu = document.querySelector(".nav-menu");
@@ -1948,7 +1955,17 @@
       });
 
       document.querySelectorAll(".nav-menu li a").forEach((link) => {
-        link.addEventListener("click", () => {
+        link.addEventListener("click", (event) => { // 'event' parametresini ekledik
+          event.preventDefault(); // Varsayılan bağlantı davranışını engeller
+
+          const targetId = link.getAttribute('href').substring(1); // '#' karakterini kaldırdık
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+          }
+
+          // Mobil menüyü kapatma işlemi (mevcut kod)
           hamburger.classList.remove("active");
           navMenu.classList.remove("active");
         });
@@ -1982,11 +1999,13 @@
       });
 
       // Scroll to Membership
-      function scrollToMembership() {
+      function scrollToMembership(event) {
+        event.preventDefault(); // Varsayılan bağlantı davranışını engeller
         document
           .getElementById("membership")
           .scrollIntoView({ behavior: "smooth" });
       }
+
     </script>
   </body>
 </html>
